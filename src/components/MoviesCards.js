@@ -1,0 +1,28 @@
+import React, { useEffect, useState } from 'react'
+import { CardGroup, Card, Row, Col } from 'react-bootstrap'
+
+
+
+const MoviesCards = ({movies}) => {
+  
+    return (
+        <div>
+            <Row xs={1} md={5} className="g-2">
+                {movies.map((e) => (
+                    <Col>
+                    <Card className="card">
+                            <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${e.poster_path}`} atl={e.title}/>
+                        <Card.Body>
+                                <Card.Title className="card-title">{e.title}</Card.Title>
+                                <Card.Subtitle></Card.Subtitle>
+                                <Card.Text> </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    </Col>
+                ))}
+            </Row>
+        </div>
+    )
+}
+
+export default MoviesCards
