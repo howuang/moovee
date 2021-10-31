@@ -17,6 +17,7 @@ const Homepage = () => {
             const baseURL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&page=${currentPage}`
             const res = await fetch(baseURL);
             const result = await res.json();
+            console.log(result)
             setMovies(result.results)
             setTotalPage(result.total_pages);
         }

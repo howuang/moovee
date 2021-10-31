@@ -15,7 +15,8 @@ const MoviesCards = ({movies}) => {
                         <Card.Body>
                                 <Card.Title className="card-title">{e.title}</Card.Title>
                                 <Card.Subtitle></Card.Subtitle>
-                                <Card.Text> </Card.Text>
+                                <Card.Text>Release Date: {e.release_date}</Card.Text>
+                                <Card.Text>Rating: {e.vote_average}</Card.Text>
                         </Card.Body>
                     </Card>
                     </Col>
