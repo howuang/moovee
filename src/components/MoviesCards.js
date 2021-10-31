@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { CardGroup, Card, Row, Col } from 'react-bootstrap'
-
-
+import { Link, useHistory } from 'react-router-dom'
 
 const MoviesCards = ({movies}) => {
   
@@ -10,7 +9,7 @@ const MoviesCards = ({movies}) => {
             <Row xs={1} md={5} className="g-2">
                 {movies.map((e) => (
                     <Col>
-                    <Card className="card">
+                    <Card className="card" as={Link} to={`/movie/${e.id}`}>
                             <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${e.poster_path}`} atl={e.title}/>
                         <Card.Body>
                                 <Card.Title className="card-title">{e.title}</Card.Title>

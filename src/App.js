@@ -4,7 +4,8 @@ import { Route, Switch } from 'react-router';
 import Homepage from './Pages/Homepage';
 import NavbarMovies from './components/NavbarMovies';
 import SearchPage from './Pages/SearchPage';
-import GenrePage from './Pages/GenrePage';
+import MoviePage from './Pages/MoviePage';
+
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route path="/search/:search" component={SearchPage} />
-        <Route path="/genre" component={GenrePage} />
+        <Route path="/movie/:id" component={MoviePage} />
       </Switch>
     </div>
   );
