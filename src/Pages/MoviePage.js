@@ -4,13 +4,15 @@ import {useParams} from "react-router-dom";
 
 const MoviePage = () => {
 
+    const API_KEY = "27557e4d1fe2bc4e3586b69c35f06379";
+
     const [movie, setMovie] = useState({})
     const params = useParams();
     const { id } = params;
 
     useEffect(() => {
         const fetchData = async () => {
-            const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
+            const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`;
             console.log(url)
             const res = await fetch(url);
             const result = await res.json();
@@ -19,11 +21,10 @@ const MoviePage = () => {
         }
         fetchData()
     }, [id])
-
     return (
         <div>
             <Card className="card">
-                <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} atl={movie.title}/>
+                <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} style={{width:"352px"}} atl={movie.title}/>
                 <Card.Body>
                     <Card.Title className="card-title">{movie.title}</Card.Title>
                     <Card.Subtitle></Card.Subtitle>

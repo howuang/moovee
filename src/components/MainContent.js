@@ -7,7 +7,7 @@ const MainContent = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const API_KEY = process.env.REACT_APP_API_KEY
+            const API_KEY = "27557e4d1fe2bc4e3586b69c35f06379";
             const baseURL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`
             const res = await fetch(baseURL);
             const data = await res.json();
@@ -21,7 +21,7 @@ const MainContent = () => {
             <Carousel fade className="carousel">
             <h1>TRENDING NOW</h1>
             {movies.map((e) => (
-                    <Carousel.Item>
+                    <Carousel.Item key={e.id}>
                         <img
                         className="d-block w-100 h-80"
                         src={`https://image.tmdb.org/t/p/original${e.backdrop_path}`}

@@ -1,42 +1,43 @@
 import React, { useEffect, useState } from 'react'
 import MainContent from '../components/MainContent'
-import MoviesPagination from '../components/MoviesPagination'
+// import MoviesPagination from '../components/MoviesPagination'
 import MoviesCards from '../components/MoviesCards'
 
 
 const Homepage = () => {
 
-    const [movies, setMovies] = useState([])
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPage, setTotalPage] = useState(10);
+    const [movies, setMovies] = useState([]);
+    const [movieClicked, setMovieClicked] = useState([]);
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const [totalPage, setTotalPage] = useState(10);
 
 
     useEffect(() => {
         const fetchData = async () => {
-            const API_KEY = process.env.REACT_APP_API_KEY
-            const baseURL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&page=${currentPage}`
+            const API_KEY = "27557e4d1fe2bc4e3586b69c35f06379";
+            const baseURL = `https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US&page=1`;
             const res = await fetch(baseURL);
             const result = await res.json();
             console.log(result)
             setMovies(result.results)
-            setTotalPage(result.total_pages);
+            // setTotalPage(result.total_pages);
         }
         fetchData()
-    }, [currentPage])
+    }, []);
+    // }, [currentPage])
 
     return (
         <div className="main-content">
-            <div>
+
                 <MainContent/>
-            </div>
-            <div>
-                <MoviesCards movies={movies}/>
-            </div>
-            <div>
-                <MoviesPagination  currentPage={currentPage} setCurrentPage={setCurrentPage} totalPage={totalPage}/>
-            </div>
+
+                <MoviesCards movies={movies} setMovieClicked={setMovieClicked}/>
         </div>
-    )
-}
+    );
+};
 
 export default Homepage
+
+           /* <div>
+                <MoviesPagination  currentPage={currentPage} setCurrentPage={setCurrentPage} totalPage={totalPage}/>
+            </div> */
