@@ -1,4 +1,7 @@
-# Week 5 - Weekly Project with React JS
+# Moovee - Weekly Project with React JS
+
+## Description:
+This exercise is to create a Front End Website using public API from Movie DB API using React JS in Full Stack Web Development Bootcamp at Coderschool.
 
 ## File structure:
 
