@@ -6,16 +6,17 @@ import MoviesPagination from '../components/MoviesPagination';
 
 const SearchPage = () => {
 
+    const API_KEY = "27557e4d1fe2bc4e3586b69c35f06379";
     const [movies, setMovies] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPage, setTotalPage] = useState(10);
 
     const params = useParams();
     const { search } = params;
-
+    
     useEffect(() => {
         const fetchData = async () => {
-            const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${search}&page=${currentPage}&include_adult=false`;
+            const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&page=${currentPage}&include_adult=false`;
             const res = await fetch(url);
             const result = await res.json();
             console.log("result", result)
